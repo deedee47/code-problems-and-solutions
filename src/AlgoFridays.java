@@ -28,9 +28,13 @@ public class AlgoFridays {
         //Algo Friday 3
         System.out.println("Algo Friday 3");
         System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
+        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
         System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{}, 2)));
+        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{}, 2)));
         System.out.println(Arrays.toString(getBoundaryIndexesOfVal(null, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{1, 0, 2, -5, 2}, 8)));
+        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(null, 2)));
+        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{0, 0, 0, 0, 0}, 0)));
+        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{0, 0, 0, 0, 0}, 0)));
         //-5,-3,0,1,2,2,2,3,5,6,9
     }
 
@@ -141,5 +145,37 @@ public class AlgoFridays {
 
         return new int[]{-1, -1};
 
+    }
+
+    public static int[] getBoundaryIndexesOfVal2(int[] nums, int val){
+        if(nums == null) return new int[] {-1, -1};
+
+        if (nums.length == 0) return new int[] {-1, -1};
+
+        int startIndex = 0;
+        int endIndex = nums.length - 1;
+        int preValCount = 0;
+        int postValCount = 0;
+
+        while(startIndex <= endIndex){ //if there's only one occurrence, start and end index will be the same
+
+            if(startIndex == endIndex){
+                if(nums[startIndex] < val) preValCount++;
+                if(nums[startIndex] > val) postValCount++;
+            }else
+            {
+                if(nums[startIndex] < val) preValCount++;
+                if(nums[startIndex] > val) postValCount++;
+                if(nums[endIndex] < val)  preValCount++;
+                if(nums[endIndex] > val) postValCount++;
+            }
+
+            startIndex++;
+            endIndex--;
+        }
+
+        if(preValCount + postValCount == nums.length) return new int[]{-1, -1};
+
+        return new int[]{preValCount, nums.length - 1 - postValCount};
     }
 }
