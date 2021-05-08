@@ -36,6 +36,19 @@ public class AlgoFridays {
         System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{0, 0, 0, 0, 0}, 0)));
         System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{0, 0, 0, 0, 0}, 0)));
         //-5,-3,0,1,2,2,2,3,5,6,9
+
+        //Algo Friday 4
+        System.out.println("Algo Friday 4");
+        System.out.println(Arrays.toString(getProducts(new int[]{1, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
+        System.out.println(Arrays.toString(getProducts(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
+        System.out.println(Arrays.toString(getProducts(new int[]{10, 29})));
+        System.out.println(Arrays.toString(getProducts(new int[]{10})));
+        System.out.println(Arrays.toString(getProducts(new int[]{4,5,10, 2})));
+        System.out.println(Arrays.toString(getProducts(new int[]{})));
+        System.out.println(Arrays.toString(getProducts(null)));
+        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 0})));
+        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 5})));
+        System.out.println(Arrays.toString(getProducts(new int[]{4,3, 0})));
     }
 
     //Algo Friday 1
@@ -178,4 +191,67 @@ public class AlgoFridays {
 
         return new int[]{preValCount, nums.length - 1 - postValCount};
     }
+
+    //Algo Friday 4
+    //Return an array of products where product[i] is a product of all other elements in nums array except i
+    public static int[] getProducts(int[] nums){
+
+        if(nums == null) return new int[0];
+        if(nums.length == 0) return new int[0];
+        if(nums.length == 1) return new int[]{0};
+
+
+        int[] products = new int[nums.length];
+
+        //any number multiplied by 1 is the same number; therefore allProducts cannot be initialized to 0
+        int allProducts = 1, start = 0, end = nums.length-1, countOfZeros = 0;
+
+        while(start<=end){
+
+            //if all elements are 0, no product to return
+            if(start==end){
+
+                if(nums[start] == 0){
+                    countOfZeros++; //ignore 0s in the array, keep a count in case all/some elements are 0;
+                }
+                else{
+                    allProducts *= nums[start];
+                }
+
+            }
+            else{
+
+                if(nums[start] == 0){
+                    countOfZeros++;
+                }
+                else{
+                    allProducts *= nums[start];
+                }
+
+                if(nums[end] == 0){
+                    countOfZeros++; //ignore 0s in the array, keep a count in case all elements are 0;
+                }
+                else{
+                    allProducts *= nums[end];
+                }
+            }
+            start++; end--;
+
+        }
+
+        if (countOfZeros >  1) return products; //product of any other number including a 0 still results in 0
+
+        // only countOfZeros = 1 can result in the index having a product
+        for(int index = 0; index < nums.length; index++){
+            products[index] = (countOfZeros == 1) ?
+                                    (nums[index] == 0) ? allProducts : 0
+                              : allProducts/nums[index];
+        }
+
+        return products;
+    }
+
+    //AlgoFriday 5 is ArrayMerge Class
 }
+
+

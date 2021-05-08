@@ -26,7 +26,7 @@ public class PascalsTriangle {
 
         if(numRows <= 0) return  result;
 
-        List<Integer> innerResult = new ArrayList<>();
+        List<Integer> innerResult;
 
         int row = 0;
         while (row < numRows){
