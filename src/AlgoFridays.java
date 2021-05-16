@@ -3,75 +3,88 @@ import java.util.Arrays;
 public class AlgoFridays {
 
     public static void main (String[] args){
+//
+//        //Algo Friday 1
+//        System.out.println("Algo Friday 1");
+//        System.out.println(removeDuplicates(null));
+//        System.out.println(removeDuplicates(new int[]{}));
+//        System.out.println(removeDuplicates(new int[]{1, 2, 3, 3, 3, 4, 4, 5}));
+//        System.out.println();
+//
+//        //Algo Friday 2
+//        System.out.println("Algo Friday 2");
+//        System.out.println(countOfElementsExcludingVal(null, 1));
+//        System.out.println(countOfElementsExcludingVal(new int[] {0,0,0,0}, 5));
+//        System.out.println(countOfElementsExcludingVal(new int[]{}, 3));
+//        System.out.println(countOfElementsExcludingVal(new int[]{1, 2, 3, 3, 3, 4, 4, 5}, 2));
+//        System.out.println();
+//        System.out.println("Algo Friday 2 - Optimized");
+//        System.out.println(countOfElementsExcludingVal(null, 1));
+//        System.out.println(countOfElementsExcludingVal2(new int[] {0,0,0,0}, 5));
+//        System.out.println(countOfElementsExcludingVal2(new int[]{}, 3));
+//        System.out.println(countOfElementsExcludingVal2(new int[]{1, 2, 3, 3, 3, 4, 4, 5}, 2));
+//        System.out.println();
+//
+//        //Algo Friday 3
+//        System.out.println("Algo Friday 3");
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{}, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{}, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(null, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(null, 2)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{0, 0, 0, 0, 0}, 0)));
+//        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{0, 0, 0, 0, 0}, 0)));
+//        //-5,-3,0,1,2,2,2,3,5,6,9
+//
+//
+//        //Algo Friday 4
+//        System.out.println("Algo Friday 4");
+//        System.out.println(Arrays.toString(getProducts(new int[]{1, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{10, 29})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{10})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{4,5,10, 2})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{})));
+//        System.out.println(Arrays.toString(getProducts(null)));
+//        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 0})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 5})));
+//        System.out.println(Arrays.toString(getProducts(new int[]{4,3, 0})));
+//
+//
+//        //Algo Friday 5
+//        System.out.println("Algo Friday 5");
+//        System.out.println(Arrays.toString(mergeSortedArray(null, null)));
+//        System.out.println(Arrays.toString(mergeSortedArray(null, new int[]{1,2,3,4})));
+//        System.out.println(Arrays.toString(mergeSortedArray( new int[]{5,6,7,8}, null)));
+//        System.out.println(Arrays.toString(mergeSortedArray( new int[]{1}, new int[]{2})));
+//        System.out.println(Arrays.toString(mergeSortedArray( new int[]{10, 100, 1000, 10000, 100000},
+//                new int[]{345, 676, 57584, 593009})));
+//        System.out.println(Arrays.toString(mergeSortedArray( new int[]{}, new int[]{1,4,6})));
+//
+//        //////////////////////////////////
+//        System.out.println("Algo Friday 5 - Optimized");
+//        System.out.println(Arrays.toString(mergeSortedArray2(null, null)));
+//        System.out.println(Arrays.toString(mergeSortedArray2(null, new int[]{1,2,3,4})));
+//        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{5,6,7,8}, null)));
+//        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{1}, new int[]{2})));
+//        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{10, 100, 1000, 10000, 100000},
+//                new int[]{345, 676, 57584, 593009})));
+//        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{}, new int[]{1,4,6})));
 
-        //Algo Friday 1
-        System.out.println("Algo Friday 1");
-        System.out.println(removeDuplicates(null));
-        System.out.println(removeDuplicates(new int[]{}));
-        System.out.println(removeDuplicates(new int[]{1, 2, 3, 3, 3, 4, 4, 5}));
-        System.out.println();
+        //Algo Friday 6
+        System.out.println("Algo Friday 6");
+        System.out.println(Arrays.toString(shuffleLine(new int[]{4,1,3}, -1)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -2)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -3)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -1)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, -10)));
 
-        //Algo Friday 2
-        System.out.println("Algo Friday 2");
-        System.out.println(countOfElementsExcludingVal(null, 1));
-        System.out.println(countOfElementsExcludingVal(new int[] {0,0,0,0}, 5));
-        System.out.println(countOfElementsExcludingVal(new int[]{}, 3));
-        System.out.println(countOfElementsExcludingVal(new int[]{1, 2, 3, 3, 3, 4, 4, 5}, 2));
-        System.out.println();
-        System.out.println("Algo Friday 2 - Optimized");
-        System.out.println(countOfElementsExcludingVal(null, 1));
-        System.out.println(countOfElementsExcludingVal2(new int[] {0,0,0,0}, 5));
-        System.out.println(countOfElementsExcludingVal2(new int[]{}, 3));
-        System.out.println(countOfElementsExcludingVal2(new int[]{1, 2, 3, 3, 3, 4, 4, 5}, 2));
-        System.out.println();
-
-        //Algo Friday 3
-        System.out.println("Algo Friday 3");
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2}, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{}, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{}, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(null, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(null, 2)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal(new int[]{0, 0, 0, 0, 0}, 0)));
-        System.out.println(Arrays.toString(getBoundaryIndexesOfVal2(new int[]{0, 0, 0, 0, 0}, 0)));
-        //-5,-3,0,1,2,2,2,3,5,6,9
-
-
-        //Algo Friday 4
-        System.out.println("Algo Friday 4");
-        System.out.println(Arrays.toString(getProducts(new int[]{1, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
-        System.out.println(Arrays.toString(getProducts(new int[]{1, 0, 2, -5, 2, -3, 3, 9, 6, 5, 2})));
-        System.out.println(Arrays.toString(getProducts(new int[]{10, 29})));
-        System.out.println(Arrays.toString(getProducts(new int[]{10})));
-        System.out.println(Arrays.toString(getProducts(new int[]{4,5,10, 2})));
-        System.out.println(Arrays.toString(getProducts(new int[]{})));
-        System.out.println(Arrays.toString(getProducts(null)));
-        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 0})));
-        System.out.println(Arrays.toString(getProducts(new int[]{0, 0, 0, 0, 5})));
-        System.out.println(Arrays.toString(getProducts(new int[]{4,3, 0})));
-
-
-        //Algo Friday 5
-        System.out.println("Algo Friday 5");
-        System.out.println(Arrays.toString(mergeSortedArray(null, null)));
-        System.out.println(Arrays.toString(mergeSortedArray(null, new int[]{1,2,3,4})));
-        System.out.println(Arrays.toString(mergeSortedArray( new int[]{5,6,7,8}, null)));
-        System.out.println(Arrays.toString(mergeSortedArray( new int[]{1}, new int[]{2})));
-        System.out.println(Arrays.toString(mergeSortedArray( new int[]{10, 100, 1000, 10000, 100000},
-                new int[]{345, 676, 57584, 593009})));
-        System.out.println(Arrays.toString(mergeSortedArray( new int[]{}, new int[]{1,4,6})));
-
-        //////////////////////////////////
-        System.out.println("Algo Friday 5 - Optimized");
-        System.out.println(Arrays.toString(mergeSortedArray2(null, null)));
-        System.out.println(Arrays.toString(mergeSortedArray2(null, new int[]{1,2,3,4})));
-        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{5,6,7,8}, null)));
-        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{1}, new int[]{2})));
-        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{10, 100, 1000, 10000, 100000},
-                new int[]{345, 676, 57584, 593009})));
-        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{}, new int[]{1,4,6})));
-    }
+        System.out.println(Arrays.toString(shuffleLine(new int[]{1,2,3,4,5}, 5)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 2)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 3)));
+        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, 10)));
+   }
 
     //Algo Friday 1
     //Return new count of unique elements from a sequence of elements
@@ -322,6 +335,52 @@ public class AlgoFridays {
         }
 
         return merged;
+    }
+
+    //AlgoFriday 6
+    //Rearrange an assembly line of students given the number of students to move
+    //-1 move student from front of line to back
+    //+1 move student from back of line to front
+    //0 no movement
+    public static int[] shuffleLine(int[] line, int numberToShuffle){
+        if(line == null) return null;
+
+        int lineLength = line.length;
+        if(numberToShuffle == 0 || lineLength == 0 || Math.abs(numberToShuffle) == lineLength) return line;
+
+        if(Math.abs(numberToShuffle) > lineLength)
+        {
+            numberToShuffle = numberToShuffle % lineLength;
+            //This is to fine the remaining slots to shuffle
+        }
+
+        int[] newLine = new int[lineLength];
+
+        if(numberToShuffle < 0){
+            numberToShuffle = Math.abs(numberToShuffle);
+
+            //starting indexes on the new array
+            int newLineBackIndex = lineLength - numberToShuffle;
+
+            //starting indexes to copy from old array
+            int moveToFrontStartIndex = numberToShuffle;
+
+            System.arraycopy(line,moveToFrontStartIndex,newLine,0,lineLength - moveToFrontStartIndex);
+            System.arraycopy(line,0,newLine,newLineBackIndex,numberToShuffle);
+
+        }else {
+
+            //starting indexes on the new array
+            int newLineBackIndex = numberToShuffle;
+
+            //starting indexes to copy from old array
+            int moveToFrontStartIndex = lineLength - numberToShuffle;
+
+            System.arraycopy(line,moveToFrontStartIndex,newLine,0,numberToShuffle);
+            System.arraycopy(line,0,newLine,newLineBackIndex,lineLength - numberToShuffle);
+        }
+
+        return newLine;
     }
 }
 
