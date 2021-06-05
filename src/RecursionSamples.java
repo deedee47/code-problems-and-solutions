@@ -25,12 +25,15 @@ public class RecursionSamples {
        // System.out.println(doubleSize(new ArrayList<Long>(){2, 1, 3, 8, 6, 11, 16}, 2));
 
         //Reverse LinkedList
-        ListNode head2 = new ListNode(1);
-        head2.next =  new ListNode(2);
-        head2.next.next =  new ListNode(3);
-        head2.next.next.next =  new ListNode(4);
-        head2.next.next.next.next =  new ListNode(2);
-        System.out.println(reverseList(head2).val);
+//        ListNode head2 = new ListNode(1);
+//        head2.next =  new ListNode(2);
+//        head2.next.next =  new ListNode(3);
+//        head2.next.next.next =  new ListNode(4);
+//        head2.next.next.next.next =  new ListNode(2);
+//        System.out.println(reverseList(head2).val);
+
+        //Super Digit
+        System.out.println(superDigit("9875", 4));
     }
 
     /*
@@ -224,4 +227,41 @@ public class RecursionSamples {
 
     //reverse Linklist with loop
   //  public static ListNode reverseListWithLoop(ListNode head){}
+
+
+    /*
+    Digit sum :
+    We define super digit of an integer  using the following rules:
+    -Given an integer, we need to find the super digit of the integer.
+    -If  has only  digit, then its super digit is .
+    -Otherwise, the super digit of  is equal to the super digit of the sum of the digits of .
+    -when given value k, repeat n for k times before finding the super digit
+     */
+    public static int superDigit(String n, int k) {
+        // Write your code here
+
+        //check if string is valid number
+        if(n.equals("") || n.length() == 0 ) return 0;
+
+        int sumOfString = getSum(n);
+        sumOfString = (k>0) ? sumOfString*k : sumOfString;
+
+        return doSuperDigit(String.valueOf(sumOfString));
+    }
+
+    private static int doSuperDigit(String n){
+        if(n.length() == 1) {return Integer.valueOf(n);}
+
+        int sum = getSum(n);
+
+        return doSuperDigit(String.valueOf(sum));
+    }
+
+    private static int getSum(String n){
+        int sum = 0;
+        for (int i = 0; i < n.length(); i++){
+            sum += Character.digit(n.charAt(i), 10);
+        }
+        return sum;
+    }
 }

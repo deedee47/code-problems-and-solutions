@@ -1,4 +1,7 @@
-import java.util.Arrays;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class AlgoFridays {
 
@@ -73,17 +76,62 @@ public class AlgoFridays {
 //        System.out.println(Arrays.toString(mergeSortedArray2( new int[]{}, new int[]{1,4,6})));
 
         //Algo Friday 6
-        System.out.println("Algo Friday 6");
-        System.out.println(Arrays.toString(shuffleLine(new int[]{4,1,3}, -1)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -2)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -3)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -1)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, -10)));
+//        System.out.println("Algo Friday 6");
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{4,1,3}, -1)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -2)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -3)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, -1)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, -10)));
+//
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{1,2,3,4,5}, 5)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 2)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 3)));
+//        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, 10)));
 
-        System.out.println(Arrays.toString(shuffleLine(new int[]{1,2,3,4,5}, 5)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 2)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,5,3,7}, 3)));
-        System.out.println(Arrays.toString(shuffleLine(new int[]{8,4,3,7, 5, 2, 1}, 10)));
+        //Algo Friday 7
+//        System.out.println("Algo Friday 7");
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"16:00","16:15","12:20"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"16:00","1615","12:20"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"16-00","1615","12/20"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"16:00"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[0]));
+//        System.out.println(getMinDifferenceInMinutes(null));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"08:20","23:55"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"08:20","235"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"3err", "gt445", "08:20","12:05"}));
+//        System.out.println(getMinDifferenceInMinutes(new String[]{"03:12", "10:10", "08:20","12:05","10:10"}));
+//
+//        System.out.println("Algo Friday 7 Method 2");
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"16:00","16:15","12:20"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"16:00","1615","12:20"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"16-00","1615","12/20"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"16:00"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[0]));
+//        System.out.println(getMinDifferenceInMinutes2(null));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"08:20","23:55"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"08:20","235"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"3err", "gt445", "08:20","12:05"}));
+//        System.out.println(getMinDifferenceInMinutes2(new String[]{"03:12", "10:10", "08:20","12:05","10:10"}));
+
+         //Algo Friday 8
+//        System.out.println(playNumberLetterCombination("kkjjk"));
+//        System.out.println(playNumberLetterCombination("1234"));
+//        System.out.println(playNumberLetterCombination("000"));
+
+        //Algo Friday 9
+        Map<Character, List<Character>> map = new HashMap<>();
+//        map.put('A', new ArrayList<Character>(){{add('B');add('C');}});
+//        map.put('B', new ArrayList<Character>(){{add('A');}});
+//        map.put('C', new ArrayList<Character>(){{add('B');}});
+
+
+        map.put('A', new ArrayList<Character>(){{add('B');add('C');}});
+        map.put('B', new ArrayList<Character>(){{add('D');}});
+        map.put('C', new ArrayList<Character>(){{add('E');}});
+        map.put('D', new ArrayList<Character>(){{add('E');}});
+
+
+        System.out.println(isThereCycle(map));
    }
 
     //Algo Friday 1
@@ -382,6 +430,189 @@ public class AlgoFridays {
 
         return newLine;
     }
+
+
+    //AlgoFriday 7
+    //Find the minimum time difference in minutes between a list of time entries (HH:MM)
+    public static long getMinDifferenceInMinutes(String[] journal){
+        if(journal == null) return 0;
+
+        if(journal.length == 0) return 0;
+
+        //sorting keeps times close together and will eliminate comparing each entry with all other elements
+        //no need to sort any array <= 2
+        if(journal.length > 2) Arrays.sort(journal);
+
+        return timeDifferenceInMins(journal);
+    }
+
+    private static long timeDifferenceInMins(String[] journal){
+
+        //based on requirement, journal entries are in HH:MM - 24hr format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+        int prevIndex = 0, index = 0;
+        long diff = Integer.MIN_VALUE;
+
+        //get previousElement in the array to avoid recomputing the same date when checking adjacent items
+        //cant use index 0 as default prev - it might be invalid; hence find first valid date
+        long prev = 0;
+        while(prevIndex < journal.length){
+            try {
+                prev = dateFormat.parse(journal[prevIndex]).getTime();
+                index = prevIndex+1;
+                break;
+            } catch (ParseException e) {
+                //String is in a wrong format - ignore
+                prevIndex++;
+            }
+        }
+
+        //no valid entries in the list
+        if(prev == 0 ) return 0;
+
+        //helps to track if there are any other valid elements after prev
+        boolean isValidExists = false;
+        while(index < journal.length){
+            long nextDate = 0;
+
+            try {
+                nextDate = dateFormat.parse(journal[index]).getTime();
+                isValidExists = true;
+            } catch (ParseException e) {
+                //String is in a wrong format - ignore
+                index++;
+                continue;
+            }
+
+           //calculate difference
+            long timeDiff = Math.abs(nextDate - prev);
+            diff = (diff != Integer.MIN_VALUE) ? Math.min(timeDiff, diff) : timeDiff;
+
+            //next values
+            prev = nextDate;
+            index++;
+        }
+
+        return (isValidExists) ? TimeUnit.MILLISECONDS.toMinutes(diff) : TimeUnit.MILLISECONDS.toMinutes(prev);
+    }
+
+    //Second solution with space trace-off
+    public static long getMinDifferenceInMinutes2(String[] journal){
+        if(journal == null) return 0;
+
+        if(journal.length == 0) return 0;
+
+        //Using a set to store unique and valid entries
+        //if any entry is duplicated, it will auto break because that will be the minimum time difference
+        //TreeSet stores data in natural order - O(Log N) time complexity - better than sorting array with NLogN
+        //sorting keeps times close together and will eliminate comparing each entry with all other elements
+        //Tradeoff extra space for faster sort process
+        Set<Long> validEntries = new TreeSet<>();
+
+        //based on requirement, journal entries are in HH:MM - 24hr format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+        //strip out invalid entries and put the rest in the tree set - O(N)
+        for(int index = 0; index < journal.length; index++){
+            try {
+                long timeInMs = dateFormat.parse(journal[index]).getTime();
+                if(validEntries.contains(timeInMs)) return 0;
+                validEntries.add(timeInMs);
+            } catch (ParseException e) {
+                //String is in a wrong format - ignore
+                continue;
+            }
+        }
+
+        //no valid entries after the filter
+        if(validEntries.size() == 0) return 0;
+
+
+        //find difference - O(N) worst case
+        long prev = Long.MIN_VALUE;
+        long diff = Long.MIN_VALUE;
+        for(long entry : validEntries){
+            if(prev != Long.MIN_VALUE){
+                long timeDiff = Math.abs(entry - prev);
+                diff = (diff != Long.MIN_VALUE) ? Math.min(timeDiff, diff) : timeDiff;
+            }
+            prev = entry;
+        }
+
+        return (diff!=Long.MIN_VALUE) ? TimeUnit.MILLISECONDS.toMinutes(diff) : TimeUnit.MILLISECONDS.toMinutes(prev);
+    }
+
+
+    //AlgoFriday 8
+    //KeypadNumber to letter mapping. Find all combinations of letters given a set of numbers
+    //2-9 corresponds to letters on the phone keypad and the same index of the array
+    private static String[] keyPadMapping = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv" ,"wxyz"};
+    public static List<String> playNumberLetterCombination(String number){
+
+        List<String> combinedWords = new ArrayList<>();
+
+        //empty or wrong input
+        if(number.isEmpty() || !number.matches("\\d+")) return combinedWords;
+
+        combination("", number, 0, combinedWords);
+
+        return combinedWords;
+    }
+
+    private static void combination(String combo, String number, int numberIndex, List<String> combinedWords)
+    {
+        //break recursion here
+        if(numberIndex >= number.length()){
+           combinedWords.add(combo);
+           return;
+        }
+
+        //get number
+        int index = Character.digit(number.charAt(numberIndex), 10);
+
+        //get corresponding letters
+        String letters = keyPadMapping[index]; //retrieve number mapping
+
+        for(int i = 0; i < letters.length(); i++){
+            combination(combo+letters.charAt(i), number, numberIndex + 1,
+                    combinedWords);
+        }
+    }
+
+    //Algo Friday 9
+    //determine f there's at least one cycle in the given direction
+    //a map of starting point and directions, tell if there's a cycle present
+    public static boolean isThereCycle(Map<Character, List<Character>> map){
+        if(map == null || map.isEmpty()) return false;
+
+        //use each node as starting point
+        for(char item : map.keySet()){
+            //create new tracking experience for each start point
+           Stack<Character> trackPad = new Stack<>();
+           List<Character> visitedPoints = new ArrayList<>();
+
+           visitedPoints.add(item);
+           trackPad.addAll(map.get(item));
+
+            while(!trackPad.isEmpty()){
+                char subItem = trackPad.pop();
+
+                //check if subpath leads back to origin
+                //if key is not found, return a default list - handles null exceptions
+                if(map.getOrDefault(subItem, new ArrayList<>()).contains(item)) return true;
+
+                //avoid re-processing a path
+                if(!visitedPoints.contains(subItem)){
+                    trackPad.addAll(map.getOrDefault(subItem, new ArrayList<>()));
+                    visitedPoints.add(subItem);
+                }
+
+            }
+        }
+        return false;
+    }
+
 }
 
 
